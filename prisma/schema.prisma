@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model lojas {
+  id         Int      @id @default(autoincrement())
+  nome       String   @db.VarChar(255)
+  logradouro String   @db.VarChar(255)
+  bairro     String   @db.VarChar(255)
+  cidade     String   @db.VarChar(255)
+  estado     String   @db.VarChar(255)
+  numero     String   @db.VarChar(10)
+  telefone   String   @db.VarChar(20)
+  cep        String   @db.VarChar(9)
+  latitude   Decimal? @db.Decimal(9, 6)
+  longitude  Decimal? @db.Decimal(9, 6)
+
+}
+
+model users {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(63)
+  email      String   @db.VarChar(127)
+  password   String   @db.VarChar(127)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @default(now()) @db.Timestamp(6)
+}
