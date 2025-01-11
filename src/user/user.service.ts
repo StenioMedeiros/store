@@ -14,11 +14,11 @@ export class UserService{
         });
     }
 
-    async list(){
+    async findAll(){
         return this.prisma.users.findMany();
     }
 
-    async readOne(id: number){
+    async findOne(id: number){
         return this.prisma.users.findUnique({
             where:{
                 id
@@ -36,7 +36,7 @@ export class UserService{
     }
 
     async delet(id: number){
-        if (!(await this.readOne(id))){
+        if (!(await this.findOne(id))){
             throw new NotFoundException(`O usuario ${id} não existe`);
         }
 

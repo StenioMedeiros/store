@@ -62,7 +62,7 @@ export class StoresService {
     }
 
     // Método para remover uma loja pelo ID
-    async remove(id: number) {
+    async delete(id: number) {
         const store = await this.findOne(id); // Garante que a loja existe antes de deletar
         return this.prisma.stores.delete({
             where: { id: store.id },
