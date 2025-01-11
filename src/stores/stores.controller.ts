@@ -73,8 +73,8 @@ export class StoresController {
     @ApiParam({ name: 'id', description: 'ID da loja a ser deletada', example: '1234' })
     @ApiResponse({ status: 200, description: 'Loja deletada com sucesso' })
     @ApiResponse({ status: 404, description: 'Loja não encontrada' })
-    async remove(@Param('id', ParseIntPipe) id: number) {
-        return this.storeService.remove(id);
+    async delete(@Param('id', ParseIntPipe) id: number) {
+        return this.storeService.delete(id);
     }
 }
 
