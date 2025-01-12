@@ -1,4 +1,4 @@
-import { IsString, IsEmail, IsBoolean, IsNumber,  IsNotEmpty, IsOptional } from "class-validator";
+import { IsString, IsEmail, IsBoolean, IsNumber,  IsNotEmpty } from "class-validator";
 
 export class CreateStoresrDTO {
   @IsNotEmpty()
@@ -8,42 +8,34 @@ export class CreateStoresrDTO {
   @IsNotEmpty()
   @IsEmail()
   email: string;
+  
+  district: string;//bairro
+  // 
+  city: string;
 
+  state: string
+  
   @IsString()
-  latitude: string;
+  postal_code: string;//cep
+   
+  @IsNotEmpty()
+  @IsString()
+  telephone_number: string;  
+  
+  @IsNotEmpty()
+  @IsString()
+  type: string; // PDV | LOJA  
+  // 
+  @IsNotEmpty()
+  take_out_in_store: boolean;//Se a loja permite retirada no local
+ 
+  latitude: number;
 
-  @IsString()
-  longitude: string;//rua
+  longitude: number;//rua
 
-  @IsString()
   logradouro: string;
 
   @IsString()
   number: string;
-
-  @IsString()
-  city: string;
-
-  @IsString()
-  district: string;//bairro
-
-  @IsString()
-  state: string;
-
-  @IsNotEmpty()
-  @IsString()
-  type: string; // PDV | LOJA
-
-  @IsString()
-  postal_code: string;//cep
-
-  @IsNotEmpty()
-  @IsString()
-  telephone_number: string;
-
-  @IsNotEmpty()
-  @IsBoolean()
-  take_out_in_store: boolean;//Se a loja permite retirada no local
-
 
 }
