@@ -21,8 +21,8 @@ export class StoresController {
     @ApiQuery({ name: 'limit', required: false, description: 'Número máximo de lojas a serem retornadas', example: 10 })
     @ApiQuery({ name: 'offset', required: false, description: 'Número de lojas a serem ignoradas', example: 0 })
     @ApiResponse({ status: 200, description: 'Lista de lojas retornada com sucesso' })
-    async findAll(@Query('limit') limit: number = 10, @Query('offset') offset: number = 0) {
-        return this.storeService.findAll(limit, offset);
+    async listAll(@Query('limit') limit: number = 10, @Query('offset') offset: number = 0) {
+        return this.storeService.listAll(limit, offset);
     }
 
     @Get(':id')
@@ -30,8 +30,8 @@ export class StoresController {
     @ApiParam({ name: 'id', description: 'ID da loja a ser buscada', example: '1234' })
     @ApiResponse({ status: 200, description: 'Loja encontrada com sucesso' })
     @ApiResponse({ status: 404, description: 'Loja não encontrada' })
-    async findOne(@Param('id', ParseIntPipe) id: number) {
-        return this.storeService.findOne(id);
+    async storeById(@Param('id', ParseIntPipe) id: number) {
+        return this.storeService.storeById(id);
     }
 
     @Get('state/:state')
